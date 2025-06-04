@@ -1,6 +1,8 @@
 import controllers.Cola;
+import controllers.ColaG;
 import controllers.Stack;
 import controllers.StackG;
+import models.Persona;
 
 public class App {
     public static void main(String[] args) {
@@ -40,6 +42,19 @@ public class App {
         cola.add(1);
         cola.print();
         System.out.println(" | "+cola.size+" → Size \n");
+
+        System.out.println("------------------------ COLA NODO GENERICO");
+        Persona p1 = new Persona("Pablo");
+        Persona p2 = new Persona("Juan");
+        Persona p3 = new Persona("Maria");
+
+        ColaG<Persona> colaG = new ColaG<Persona>();
+        colaG.add(p1);
+        colaG.add(p2);
+        colaG.add(p3);
+        colaG.print();
+        System.out.println("|| Size → "+colaG.size());
+
 
 
 
