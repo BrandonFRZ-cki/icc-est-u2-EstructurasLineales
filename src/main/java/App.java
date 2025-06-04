@@ -1,3 +1,4 @@
+import controllers.Cola;
 import controllers.Stack;
 import controllers.StackG;
 
@@ -30,5 +31,17 @@ public class App {
         stackG.pop();
         stackG.print();
         System.out.println(" | "+stackG.size() + " → size");
+
+
+        System.out.println("------------------------ COLA NODO NORMAL");
+        Cola cola = new Cola();
+        cola.add(5);
+        cola.add(7);
+        cola.add(1);
+        cola.print();
+        System.out.println(" | "+cola.size+" → Size \n");
+
+
+
     }
 }
