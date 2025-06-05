@@ -4,7 +4,7 @@ import controllers.Stack;
 import controllers.StackG;
 import models.Persona;
 
-public class App {
+public class AppPilasColas {
     public static void main(String[] args) {
         System.out.println("------------------------ NODE NORMAL");
         Stack stack = new Stack();
