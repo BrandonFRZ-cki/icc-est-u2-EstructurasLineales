@@ -48,7 +48,6 @@ public class ColaG <T> {
     public T remove() {
         if (isEmpty())
             throw new EmptyStackException();
-
         T value = primero.getValue();
         primero = primero.getNext();
         size--;
@@ -60,13 +59,53 @@ public class ColaG <T> {
         return primero.getValue();
     }
     public void print() {
-        while (primero != null) {
-            System.out.print(primero.getValue()+" , ");
-            primero = primero.getNext();
+        NodeGenerico<T> temp = primero;
+        while (temp != null) {
+            System.out.print(temp.getValue()+" , ");
+            temp = temp.getNext();
         }
     }
     public int size() {
         return size;
+    }
+
+    public int findByName(String name) {
+        int posicion = 0;
+        NodeGenerico<T> node = primero;
+        while (node != null) {
+            if (node.getValue().toString().equals(name)) {
+                return posicion;
+            }
+            node = node.getNext();
+            posicion++;
+        }
+        return -1;
+    }
+
+    public void removeByName(String name) {
+        if (isEmpty())
+            throw new EmptyStackException();
+        if (primero.getValue().toString().equals(name)) {
+            primero = primero.getNext();
+            if (primero == null) {
+                ultimo = null;
+            }
+            size--;
+            return;
+        }
+        NodeGenerico<T> actual = primero;
+        NodeGenerico<T> anterior = null;
+        while (actual != null && !actual.getValue().toString().equals(name)) {
+            anterior = actual;
+            actual = actual.getNext();
+        }
+        if (actual != null) {
+            anterior.setNext(actual.getNext());
+            if (actual == ultimo) {
+                ultimo = anterior;
+            }
+            size--;
+        }
     }
 
 

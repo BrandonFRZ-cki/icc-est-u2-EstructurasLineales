@@ -47,16 +47,29 @@ public class App {
         Persona p1 = new Persona("Pablo");
         Persona p2 = new Persona("Juan");
         Persona p3 = new Persona("Maria");
+        Persona p4 = new Persona("David");
+        Persona p5 = new Persona("Antonio");
+        Persona p6 = new Persona("Juan");
+        Persona p7 = new Persona("Pedro");
 
-        ColaG<Persona> colaG = new ColaG<Persona>();
-        colaG.add(p1);
-        colaG.add(p2);
-        colaG.add(p3);
-        colaG.print();
-        System.out.println("|| Size → "+colaG.size());
+        ColaG<Persona> colaPersonas = new ColaG<Persona>();
+        colaPersonas.add(p1);
+        colaPersonas.add(p2);
+        colaPersonas.add(p3);
+        colaPersonas.add(p4);
+        colaPersonas.add(p5);
+        colaPersonas.add(p6);
+        colaPersonas.add(p7);
+        colaPersonas.print();
+        System.out.println("|| Size → "+colaPersonas.size());
+        System.out.println("----- Elemento Eliminado con remove() → "+ colaPersonas.remove());
+        colaPersonas.print();
+        System.out.println("|| Size → "+colaPersonas.size());
 
-
-
+        System.out.println("Maria esta en la posicion "+colaPersonas.findByName("Maria"));
+        System.out.println("Elimina");
+        colaPersonas.removeByName("David");
+        colaPersonas.print();
 
     }
 }
