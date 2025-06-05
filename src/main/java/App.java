@@ -67,7 +67,7 @@ public class App {
         System.out.println("|| Size → "+colaPersonas.size());
 
         System.out.println("Maria esta en la posicion "+colaPersonas.findByName("Maria"));
-        System.out.println("Elimina");
+        System.out.println("------ ELIMINANDO David");
         colaPersonas.removeByName("David");
         colaPersonas.print();
 

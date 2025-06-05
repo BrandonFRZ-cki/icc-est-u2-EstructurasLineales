@@ -83,9 +83,12 @@ public class ColaG <T> {
     }
 
     public void removeByName(String name) {
-        if (isEmpty())
-            throw new EmptyStackException();
-        if (primero.getValue().toString().equals(name)) {
+        int posicion = findByName(name);
+        if (posicion == -1) {
+            System.out.println("No existe el elemento");;
+        }
+
+        if (posicion == 0) { // si el coso es el primero
             primero = primero.getNext();
             if (primero == null) {
                 ultimo = null;
@@ -93,21 +96,19 @@ public class ColaG <T> {
             size--;
             return;
         }
-        NodeGenerico<T> actual = primero;
-        NodeGenerico<T> anterior = null;
-        while (actual != null && !actual.getValue().toString().equals(name)) {
-            anterior = actual;
-            actual = actual.getNext();
+        NodeGenerico<T> nodoAEliminar = primero;
+        NodeGenerico<T> nodoAntesDelEliminado = null;
+        for (int i = 0; i < posicion; i++) { // Elimino el buscado
+            nodoAntesDelEliminado = nodoAEliminar;
+            nodoAEliminar = nodoAEliminar.getNext();
         }
-        if (actual != null) {
-            anterior.setNext(actual.getNext());
-            if (actual == ultimo) {
-                ultimo = anterior;
+        if (nodoAEliminar != null) {
+            nodoAntesDelEliminado.setNext(nodoAEliminar.getNext());
+            if (nodoAEliminar == ultimo) {
+                ultimo = nodoAntesDelEliminado;
             }
             size--;
         }
     }
-
-
 
 }
